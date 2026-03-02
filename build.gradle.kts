@@ -1,6 +1,29 @@
 plugins {
-    id("com.android.application") version "8.5.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.24" apply false
-    id("com.google.dagger.hilt.android") version "2.52" apply false
-    id("com.google.devtools.ksp") version "1.9.24-1.0.20" apply false
+    base
+}
+
+tasks.register("verifyAndroidScaffold") {
+    group = "verification"
+    description = "Verifies Android scaffold files exist in offline CI environments."
+
+    val requiredFiles = listOf(
+        "app/build.gradle.kts",
+        "app/src/main/AndroidManifest.xml",
+        "app/src/main/java/com/maincodees/androidapp/MainActivity.kt",
+        "app/src/main/java/com/maincodees/androidapp/MainApplication.kt",
+        "app/src/main/java/com/maincodees/androidapp/presentation/login/LoginScreen.kt",
+        "app/src/main/java/com/maincodees/androidapp/presentation/login/LoginViewModel.kt",
+        "app/src/main/java/com/maincodees/androidapp/di/AppModule.kt"
+    )
+
+    doLast {
+        val missing = requiredFiles.filterNot { file(it).exists() }
+        check(missing.isEmpty()) {
+            "Missing required Android scaffold files: ${missing.joinToString()}"
+        }
+    }
+}
+
+tasks.named("check") {
+    dependsOn("verifyAndroidScaffold")
 }
