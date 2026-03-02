@@ -1,0 +1,157 @@
+﻿:root {
+  --bg: #f8f8f8;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #737373;
+  --line: #dbdbdb;
+  --accent: #ff3040;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #fff4f4 0%, var(--bg) 35%);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  background: rgb(255 255 255 / 85%);
+}
+
+.topbar__inner {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.2px;
+}
+
+.reload-btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.reload-btn:hover {
+  border-color: #bdbdbd;
+}
+
+.feed-layout {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding: 18px 16px 48px;
+}
+
+.status {
+  color: var(--muted);
+  min-height: 24px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.feed {
+  display: grid;
+  gap: 18px;
+}
+
+.post-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 4%);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffd3d7;
+}
+
+.post-user {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.post-meta {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.post-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #efefef;
+  display: block;
+}
+
+.post-body {
+  padding: 12px;
+}
+
+.post-actions {
+  margin: 0 0 8px;
+  letter-spacing: 1px;
+}
+
+.post-likes {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.post-caption {
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+.post-caption strong {
+  margin-right: 4px;
+}
+
+.status--error {
+  color: #b00020;
+}
+
+@media (max-width: 520px) {
+  .brand {
+    font-size: 1.3rem;
+  }
+
+  .feed-layout {
+    padding-inline: 10px;
+  }
+}
