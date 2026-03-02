@@ -1,4 +1,5 @@
 ﻿import { fetchFeed } from "./api.js";
+import { registerPwa } from "./pwa.js";
 import { renderFeed, showStatus } from "./ui.js";
 
 const feedContainer = document.querySelector("#feed");
@@ -23,4 +24,5 @@ reloadButton.addEventListener("click", () => {
   loadFeed();
 });
 
+registerPwa();
 loadFeed();
