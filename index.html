@@ -1,11 +1,47 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; url=https://maincode-solutions.web.app/">
-    </head>
-    <body>
-        <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow this <a href='https://maincode-solutions.web.app/'>https://maincode-solutions.web.app/</a>.
-    </body>
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstaFeed Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <h1 class="brand">InstaFeed</h1>
+      <button id="reloadButton" class="reload-btn" type="button">Recargar</button>
+    </div>
+  </header>
+
+  <main class="feed-layout">
+    <section id="status" class="status" aria-live="polite"></section>
+    <section id="feed" class="feed" aria-label="Listado de publicaciones"></section>
+  </main>
+
+  <template id="postTemplate">
+    <article class="post-card">
+      <header class="post-header">
+        <img class="post-avatar" alt="Avatar del usuario" loading="lazy" />
+        <div>
+          <p class="post-user"></p>
+          <p class="post-meta"></p>
+        </div>
+      </header>
+
+      <img class="post-image" alt="Imagen de la publicación" loading="lazy" />
+
+      <section class="post-body">
+        <p class="post-actions">❤ &nbsp; 💬 &nbsp; ✈</p>
+        <p class="post-likes"></p>
+        <p class="post-caption"></p>
+      </section>
+    </article>
+  </template>
+
+  <script type="module" src="js/main.js"></script>
+</body>
 </html>
